@@ -23,16 +23,20 @@ let AccountsService = class AccountsService {
         return this.accountsRepository.findAll();
     }
     async createAccount(name) {
-        const account = await this.accountsRepository.findOne({ where: { name: name } });
+        const account = await this.accountsRepository.findOne({
+            where: { name: name },
+        });
         if (account) {
-            throw new Error("This account already exists");
+            throw new Error('This account already exists');
         }
         return this.accountsRepository.create({ name: name });
     }
     async findOne(name) {
-        const account = await this.accountsRepository.findOne({ where: { name: name } });
+        const account = await this.accountsRepository.findOne({
+            where: { name: name },
+        });
         if (!account) {
-            throw new Error("Account not found");
+            throw new Error('Account not found');
         }
         return account;
     }

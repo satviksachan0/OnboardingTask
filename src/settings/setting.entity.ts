@@ -1,4 +1,16 @@
-import { Table, Column, Model, DataType, CreatedAt, UpdatedAt, DeletedAt, PrimaryKey, AutoIncrement, ForeignKey, BelongsTo } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  CreatedAt,
+  UpdatedAt,
+  DeletedAt,
+  PrimaryKey,
+  AutoIncrement,
+  ForeignKey,
+  BelongsTo,
+} from 'sequelize-typescript';
 import { Account } from '../accounts/account.entity';
 
 @Table({ tableName: 'settings', timestamps: true, paranoid: true })
@@ -35,5 +47,4 @@ export class Setting extends Model {
   @DeletedAt
   @Column(DataType.DATE)
   deleted_at: Date;
-  
 }

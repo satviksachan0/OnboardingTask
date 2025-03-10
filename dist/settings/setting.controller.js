@@ -16,6 +16,8 @@ exports.SettingController = void 0;
 const common_1 = require("@nestjs/common");
 const setting_service_1 = require("./setting.service");
 const auth_guard_1 = require("../auth/auth.guard");
+const create_setting_dto_1 = require("./dto/create-setting.dto");
+const update_setting_dto_1 = require("./dto/update-setting.dto");
 let SettingController = class SettingController {
     settingService;
     constructor(settingService) {
@@ -47,7 +49,7 @@ __decorate([
     (0, common_1.Post)('createSetting'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [create_setting_dto_1.CreateSettingDto]),
     __metadata("design:returntype", Promise)
 ], SettingController.prototype, "createSetting", null);
 __decorate([
@@ -63,7 +65,7 @@ __decorate([
     (0, common_1.Put)('updateSetting'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
+    __metadata("design:paramtypes", [update_setting_dto_1.UpdateSettingDto]),
     __metadata("design:returntype", Promise)
 ], SettingController.prototype, "updateSetting", null);
 exports.SettingController = SettingController = __decorate([

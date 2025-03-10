@@ -1,4 +1,15 @@
-import { Table, Column, Model, DataType, CreatedAt, UpdatedAt, DeletedAt, PrimaryKey, AutoIncrement, HasMany } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  CreatedAt,
+  UpdatedAt,
+  DeletedAt,
+  PrimaryKey,
+  AutoIncrement,
+  HasMany,
+} from 'sequelize-typescript';
 import { Setting } from '../settings/setting.entity';
 
 @Table({ tableName: 'accounts', timestamps: true, paranoid: true })

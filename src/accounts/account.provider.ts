@@ -1,4 +1,3 @@
-
 import { Account } from './account.entity';
 
 export const accountsProviders = [

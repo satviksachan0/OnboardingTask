@@ -23,7 +23,7 @@ let AuthService = class AuthService {
     async signIn(name) {
         const user = await this.accountsService.findOne(name);
         if (!user) {
-            throw new Error("No Account found");
+            throw new Error('No Account found');
         }
         const payload = { userId: user.id, userName: user.get('name') };
         return {

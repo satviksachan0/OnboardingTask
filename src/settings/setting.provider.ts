@@ -1,4 +1,3 @@
-
 import { Setting } from './setting.entity';
 
 export const settingsProviders = [

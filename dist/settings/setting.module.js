@@ -11,18 +11,16 @@ const common_1 = require("@nestjs/common");
 const setting_controller_1 = require("./setting.controller");
 const setting_service_1 = require("./setting.service");
 const setting_provider_1 = require("./setting.provider");
-const database_module_1 = require("../database/database.module");
+const sequelize_1 = require("@nestjs/sequelize");
+const setting_entity_1 = require("./setting.entity");
 let SettingModule = class SettingModule {
 };
 exports.SettingModule = SettingModule;
 exports.SettingModule = SettingModule = __decorate([
     (0, common_1.Module)({
-        imports: [database_module_1.DatabaseModule],
+        imports: [sequelize_1.SequelizeModule.forFeature([setting_entity_1.Setting])],
         controllers: [setting_controller_1.SettingController],
-        providers: [
-            setting_service_1.SettingsService,
-            ...setting_provider_1.settingsProviders,
-        ],
+        providers: [setting_service_1.SettingsService, ...setting_provider_1.settingsProviders],
     })
 ], SettingModule);
 //# sourceMappingURL=setting.module.js.map

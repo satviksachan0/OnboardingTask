@@ -1,4 +1,3 @@
-
 import { Injectable, Inject } from '@nestjs/common';
 
 import { Account } from './account.entity';
@@ -7,25 +6,29 @@ import { Account } from './account.entity';
 export class AccountsService {
   constructor(
     @Inject('ACCOUNTS_REPOSITORY')
-    private accountsRepository: typeof Account
+    private accountsRepository: typeof Account,
   ) {}
 
   async findAll(): Promise<Account[]> {
     return this.accountsRepository.findAll<Account>();
   }
 
-  async createAccount(name: string): Promise<any> {
-    const account = await this.accountsRepository.findOne({ where: { name: name } });
-    if(account){
-        throw new Error("This account already exists");
+  async createAccount(name: string): Promise<Account> {
+    const account = await this.accountsRepository.findOne({
+      where: { name: name },
+    });
+    if (account) {
+      throw new Error('This account already exists');
     }
-    return this.accountsRepository.create({name: name});
+    return this.accountsRepository.create({ name: name });
   }
 
-  async findOne(name: String): Promise<Account> {
-    const account = await this.accountsRepository.findOne({ where: { name: name } });
+  async findOne(name: string): Promise<Account> {
+    const account = await this.accountsRepository.findOne({
+      where: { name: name },
+    });
     if (!account) {
-      throw new Error("Account not found");
+      throw new Error('Account not found');
     }
 
     return account;
