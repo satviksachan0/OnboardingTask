@@ -31,7 +31,7 @@ let SettingsService = class SettingsService {
         return this.settingRepository.destroy({ where: { id: id } });
     }
     async updateSetting(id, body) {
-        if (body.value || body.data_type) {
+        if ((!body.value && body.data_type) || (!body.data_type && body.value)) {
             throw new Error("give both value and data_type");
         }
         if (body.value && body.data_type) {

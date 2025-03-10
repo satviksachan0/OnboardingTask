@@ -25,8 +25,7 @@ let AuthService = class AuthService {
         if (!user) {
             throw new Error("No Account found");
         }
-        const namefound = user.get('name');
-        const payload = { userId: user.id, userName: namefound };
+        const payload = { userId: user.id, userName: user.get('name') };
         return {
             access_token: await this.jwtService.signAsync(payload),
         };

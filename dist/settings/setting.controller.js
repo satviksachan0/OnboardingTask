@@ -43,6 +43,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], SettingController.prototype, "getAll", null);
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Post)('createSetting'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -50,6 +51,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], SettingController.prototype, "createSetting", null);
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Delete)('/:id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
@@ -57,6 +59,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], SettingController.prototype, "deleteSetting", null);
 __decorate([
+    (0, common_1.UseGuards)(auth_guard_1.AuthGuard),
     (0, common_1.Put)('updateSetting'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

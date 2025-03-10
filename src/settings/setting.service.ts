@@ -23,7 +23,7 @@ export class SettingsService {
   }
 
   async updateSetting(id: number, body: { name?: string, data_type?: string, account_id?: number, value?: any }): Promise<any> {
-    if(body.value || body.data_type){
+    if((!body.value && body.data_type) || (!body.data_type && body.value)){
         throw new Error("give both value and data_type");
     }
     if (body.value && body.data_type) {
